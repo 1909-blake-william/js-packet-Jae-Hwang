@@ -106,11 +106,7 @@
     // Find the html element that contains "USA" in the data-customAttr.
     // Print that element's contents.
     function getUSA() {
-      const usa = document.querySelectorAll('[data-customAttr="USA"]');
-      console.log(usa[0]);
-    }
-    function getUSAOneliner() {
-      [].slice.call(document.querySelectorAll('[data-customAttr="USA"]')).forEach(console.log);
+      document.querySelectorAll('[data-customAttr="USA"]').forEach(console.log);
     }
     //getUSA();
     getUSAOneliner();
