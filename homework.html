@@ -108,8 +108,7 @@
     function getUSA() {
       document.querySelectorAll('[data-customAttr="USA"]').forEach(console.log);
     }
-    //getUSA();
-    getUSAOneliner();
+    getUSA();
 
 
     // 2. Sales
@@ -150,7 +149,9 @@
     // Find all elements with "data-customAttr" attribute
     // Print the value of the attribute.
     // Print the element that has the attribute.
-
+    function getCustomAttribute() {
+      document.querySelectorAll('[data-customAttr]').forEach(data=>{console.log(data.getAttribute("data-customattr"), data); });
+    }
 
     // 6. Sum Event
     // Regarding these elements:
@@ -200,6 +201,9 @@
     // Define function walkTheDOM(node, func)
     // This function should traverse every node in the DOM. Use recursion.
     // On each node, call func(node).
+    function walkTheDOM(node, func) {
+      node.childNodes.forEach(n => {func(n); walkTheDOM(n, func)});
+    }
   </script>
 
 </body>
