@@ -150,7 +150,7 @@
     // Print the value of the attribute.
     // Print the element that has the attribute.
     function getCustomAttribute() {
-      document.querySelectorAll('[data-customAttr]').forEach(data=>{console.log(data.getAttribute("data-customattr"), data); });
+      document.querySelectorAll('[data-customAttr]').forEach(data => { console.log(data.getAttribute("data-customattr"), data); });
     }
 
     // 6. Sum Event
@@ -162,6 +162,9 @@
     // Add <input> element values.
     // Put the sum in the <span> element.
     // If values cannot be added, put "Cannot add" in the <span> element
+    function setOnchangeSum() {
+      document.querySelectorAll('.nums').forEach(nums=>{nums.setAttribute('onchange', `(()=>{document.getElementById('sum').innerText = parseInt(document.getElementById('num1').value) + parseInt(document.getElementById('num2').value)}).call()`)});
+    }
 
 
     // 7. Skills Event
@@ -202,7 +205,7 @@
     // This function should traverse every node in the DOM. Use recursion.
     // On each node, call func(node).
     function walkTheDOM(node, func) {
-      node.childNodes.forEach(n => {func(n); walkTheDOM(n, func)});
+      node.childNodes.forEach(n => { func(n); walkTheDOM(n, func) });
     }
   </script>
 
