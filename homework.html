@@ -107,7 +107,7 @@
     // Find the html element that contains "USA" in the data-customAttr.
     // Print that element's contents.
     function getUSA() {
-      document.querySelectorAll('[data-customAttr="USA"]').forEach(console.log);
+      document.querySelectorAll('[data-customAttr="USA"]').forEach(ele=>{console.log(ele.innerText)});
     }
 
 
@@ -131,7 +131,7 @@
     // Find all anchor elements with a <span> child.
     // Print the contents of <span>
     function getAnchorChildren() {
-      document.querySelectorAll('a > span').forEach(console.log);
+      document.querySelectorAll('a > span').forEach(ele=>{console.log(ele.innerText)});
     }
 
     // 4. Hobbies
@@ -161,7 +161,7 @@
     // Put the sum in the <span> element.
     // If values cannot be added, put "Cannot add" in the <span> element
     function setOnchangeSum() {
-      document.querySelectorAll('.nums').forEach(nums=>{nums.setAttribute('onchange', `(()=>{document.getElementById('sum').innerText = parseInt(document.getElementById('num1').value) + parseInt(document.getElementById('num2').value)}).call()`)});
+      document.querySelectorAll('.nums').forEach(nums=>{nums.setAttribute('onchange', `(()=>{document.getElementById('sum').innerText = (parseInt(document.getElementById('num1').value) + parseInt(document.getElementById('num2').value))||"Cannot add"}).call()`)});
     }
 
 
