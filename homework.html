@@ -205,6 +205,9 @@
     // Regarding this element:
     // 	<p id="helloWorld">Hello, World!</p>
     // Three seconds after a user clicks on this element, change the text to a random color.
+    function delayedOnclick() {
+      document.getElementById('helloWorld').setAttribute('onclick', 'setTimeout(()=>{this.style.color="#"+((1<<24)*Math.random()|0).toString(16)}, 3000)');
+    }
 
 
     // 12. Walk the DOM
