@@ -69,16 +69,16 @@
       <input type="text" data-customAttr="7" /><br />
       <input type="text" data-customAttr="24" /><br />
       <input type="radio" name="favoriteAnimal" value="dog" />Dog<br />
-      <input type="radio" name="favoriteColor" value="blue" />Blue<br />
+      <input type="radio" name="favoriteColor" value="blue" /><span>Blue</span><br />
       <input id="num1" class="nums" type="text" /><br />
       <input type="radio" name="favoriteAnimal" value="cat" />Cat<br />
-      <input type="radio" name="favoriteColor" value="red" />Red<br />
+      <input type="radio" name="favoriteColor" value="red" /><span>Red</span><br />
       <input type="radio" name="favoriteAnimal" value="horse" />Horse<br />
       <input type="radio" name="favoriteAnimal" value="dolphin" />Dolphin<br />
       <a>Click <span>Here</span></a><br />
       <input type="radio" name="favoriteAnimal" value="eagle" />Eagle<br />
-      <input type="radio" name="favoriteColor" value="green" />Green<br />
-      <input type="radio" name="favoriteColor" value="orange" />Orange<br />
+      <input type="radio" name="favoriteColor" value="green" /><span>Green</span><br />
+      <input type="radio" name="favoriteColor" value="orange" /><span>Orange</span><br />
       <select name="hobbies">
         <option value="photography">Photography</option>
         <option value="football" selected="selected">Football</option>
@@ -181,17 +181,19 @@
     // 	"So you like green more than blue now?"
     // In this example, green is the new value and blue is the old value.
     // Make the background color (of all favoriteColor radio buttons) the newly selected favoriteColor
+
+    //modified plain text after button that was not wrapped in any tag to be wrapped in span tag so function can modify their background-color
     let prev;
     function radioButtonChange() {
       document.getElementsByName('favoriteColor')
         .forEach(ele=>{
           ele.setAttribute('onchange', "(()=>{(prev)?alert('So you like ' + this.value + ' more than ' + prev.value + ' now?'):alert('Favorite Color is now: '+this.value); "
                                      + "prev = this; " 
-                                     + "document.getElementsByName('favoriteColor').forEach(ele=>{ele.setAttribute('style', 'background-color:'+this.value)}); "
+                                     + "document.querySelectorAll(`[name='favoriteColor']+span`).forEach(ele=>{ele.setAttribute('style', 'background-color:'+this.value)}); "
                                      + "}).call()")
         });
     }
-    radioButtomChange();
+    radioButtonChange();
 
     // 9. Show/Hide Event
     // When user hovers over an employees name:
@@ -226,10 +228,11 @@
     // This function should traverse every node in the DOM. Use recursion.
     // On each node, call func(node).
     function walkTheDOM(node, func) {
-      node.childNodes.forEach(n => { func(n); walkTheDOM(n, func) });
+      node.childNodes.forEach(n => { func(n);
+                                     walkTheDOM(n, func); });
     }
   </script>
-
+  <script src = "homework.js"> </script>
 </body>
 
 </html>

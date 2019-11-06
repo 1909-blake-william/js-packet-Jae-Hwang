@@ -10,8 +10,12 @@
 // 1. Fibonacci
 // Define function: fib(n)
 // Return the nth number in the fibonacci sequence.
-
-
+function fib(n) {
+    if (typeof n === 'number') {
+        //console.log('is number');
+        return (n>0)?n*fib(n-1):1;
+    }
+}
 
 // 2. Bubble Sort
 // Define function: bubbleSort(numArray)
