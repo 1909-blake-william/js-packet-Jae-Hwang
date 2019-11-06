@@ -179,8 +179,15 @@
     // 	"So you like green more than blue now?"
     // In this example, green is the new value and blue is the old value.
     // Make the background color (of all favoriteColor radio buttons) the newly selected favoriteColor
-    function idk() {
-
+    let prev;
+    function radioButtonChange() {
+      document.getElementsByName('favoriteColor')
+        .forEach(ele=>{
+          ele.setAttribute('onchange', "(()=>{(prev)?alert('So you like ' + this.value + ' more than ' + prev.value + ' now?'):alert('Favorite Color is now: '+this.value); "
+                                     + "prev = this; " 
+                                     + "document.getElementsByName('favoriteColor').forEach(ele=>{ele.setAttribute('style', 'background-color:'+this.value)}); "
+                                     + "}).call()")
+        });
     }
 
     // 9. Show/Hide Event
