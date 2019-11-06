@@ -163,6 +163,7 @@
     function setOnchangeSum() {
       document.querySelectorAll('.nums').forEach(nums=>{nums.setAttribute('onchange', `(()=>{document.getElementById('sum').innerText = (parseInt(document.getElementById('num1').value) + parseInt(document.getElementById('num2').value))||"Cannot add"}).call()`)});
     }
+    setOnchangeSum();
 
 
     // 7. Skills Event
@@ -172,6 +173,7 @@
     function skillsEvent() {
       document.querySelectorAll('[name="skills"]').forEach(skills=>{skills.setAttribute('onchange', '(()=>{alert(`Are you sure ${Array.from(document.querySelectorAll(\'select[name="skills"] > option\')).filter(select=>{return select.selected})[0].innerText} is one of your skills?`)}).call()')});
     }
+    skillsEvent();
 
     // 8. Favorite Color Event
     // NOTE: This is regarding the favoriteColor radio buttons.
@@ -189,6 +191,7 @@
                                      + "}).call()")
         });
     }
+    radioButtomChange();
 
     // 9. Show/Hide Event
     // When user hovers over an employees name:
@@ -197,6 +200,7 @@
     function showHideEvent() {
       Array.from(document.getElementsByClassName("empName")).forEach(name=>{name.setAttribute('onmouseover', `(()=>{ ((this.style.color==='black')?this.style.color='white':this.style.color='black') }).call()`)});
     }
+    showHideEvent();
 
     // 10. Current Time
     // Regarding this element:
@@ -206,7 +210,7 @@
     function headCurrentTime() {
       setInterval(()=>{document.getElementById('currentTime').innerText = '' + ( (new Date().getHours()<13)?new Date().getHours():new Date().getHours()-12 ) + ':' + ( (new Date().getMinutes()<10)?'0'+new Date().getMinutes():new Date().getMinutes() ) + ':' + ( (new Date().getSeconds()<10)?'0'+new Date().getSeconds():new Date().getSeconds() ) + " " + ( (new Date().getHours()<13)?"AM":"PM" );}, 1000);
     }
-
+    headCurrentTime();
 
     // 11. Delay
     // Regarding this element:
@@ -215,7 +219,7 @@
     function delayedOnclick() {
       document.getElementById('helloWorld').setAttribute('onclick', 'setTimeout(()=>{this.style.color="#"+((1<<24)*Math.random()|0).toString(16)}, 3000)');
     }
-
+    delayedOnclick();
 
     // 12. Walk the DOM
     // Define function walkTheDOM(node, func)
