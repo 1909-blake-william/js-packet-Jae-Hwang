@@ -173,6 +173,7 @@
     // 	"Are you sure CSS is one of your skills?"
     // NOTE: no alert should appear when user deselects a skill.
     function skillsEvent() {
+      let abc = ()=>{console.log};
       document.querySelectorAll('[name="skills"]').forEach(skills=>{skills.setAttribute('onchange', '(()=>{alert(`Are you sure ${Array.from(document.querySelectorAll(\'select[name="skills"] > option\')).filter(select=>{return select.selected})[0].innerText} is one of your skills?`)}).call()')});
     }
     skillsEvent();

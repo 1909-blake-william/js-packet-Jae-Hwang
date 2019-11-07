@@ -222,7 +222,8 @@ function diaHelper(row, width, character) {
 // Define function traverseObject(someObj)
 // Print every property and it's value.
 function traverseObject(someObj) {
-
+    let entryArray = Object.entries(someObj);
+    entryArray.forEach(entry => {console.log(entry[0] + ': ' + entry[1])});
 }
 
 
@@ -232,6 +233,11 @@ function traverseObject(someObj) {
 // Delete the third element in the array.
 // Print length
 // The lengths should be the same.
+function deleteThird(someArr) {
+    console.log(someArr.length);
+    someArr[2] = undefined;
+    console.log(someArr.length);
+}
 
 // 11. Splice Element
 // Define function spliceElement(someArr)
@@ -239,16 +245,34 @@ function traverseObject(someObj) {
 // Splice the third element in the array.
 // Print length
 // The lengths should be one less than the original length.
-
+function spliceThird(someArr) {
+    console.log(someArr.length);
+    if (someArr.length < 4) {
+        return console.log("Array length is too short.");
+    }
+    for (let i = 3; i < someArr.length; i++) {
+        someArr[i-1] = someArr[i];
+    }
+    someArr.length = someArr.length-1;
+    console.log(someArr.length);
+}
 
 // 12. Defining an object using a constructor
 // Define a function Person(name, age)
 // The following line should set a Person object to the variable john:
 // 	let john = new Person("John", 30);
+function Person (name, age) {
+    this.name = name;
+    this.age = age;
+}
+
 
 
 // 13. Defining an object using an object literal
 // Define function getPerson(name, age)
 // The following line should set a Person object to the variable john:
 // 	let john = getPerson("John", 30);
+function getPerson (name, age) {
+    return {'name':name, 'age':age}
+}
 
